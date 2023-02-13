@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --quiet --clear ./src/server.ts"
+    "start": "ts-node-dev --quiet --clear ./src/server.ts"
   },
   "keywords": [],
   "author": "",
