@@ -3,7 +3,7 @@ import express from 'express';
 import { v4 as uuid } from 'uuid'
 
 const app = express()
-app.use(cors({origin: 'https://data-stone-frontend.vercel.app/'}))
+app.use(cors({origin: '*'}))
 app.use(express.json())
 
 const port = process.env.PORT || 3333
@@ -17,6 +17,7 @@ interface Client{
 }
 
 const clients: Client[] = []
+const products = []
 
 // LISTAR CLIENTES 
 app.get('/clients', (request, response) => {
@@ -62,6 +63,12 @@ app.delete('/client/:id', (request, response) => {
   clients.splice(clientIndex, 1)
   return response.status(204).send()
 })
+
+
+
+// CRIAR ROTA POST E GET PARA PRODUTOS
+
+
 
 
 // SUBINDO SERVIDOR
