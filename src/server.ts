@@ -34,7 +34,7 @@ app.post('/clients', (request, response) => {
 })
 
 // ATUALIZAR CLIENTE
-app.put('/client/:id', (request, response) => {
+app.put('/clients/:id', (request, response) => {
   const { id } = request.params
   const { name , document, phone, email } = request.body
 
@@ -51,7 +51,7 @@ app.put('/client/:id', (request, response) => {
 })
 
 // DELETAR CLIENTE
-app.delete('/client/:id', (request, response) => {
+app.delete('/clients/:id', (request, response) => {
   const { id } = request.params
 
   const clientIndex = clients.findIndex((user) => user.id === id)
