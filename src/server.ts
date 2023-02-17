@@ -14,6 +14,7 @@ interface Client{
   document: string
   phone: string
   email: string
+  clientStatus: string
 }
 
 const clients: Client[] = []
@@ -26,8 +27,8 @@ app.get('/clients', (request, response) => {
 
 // CRIAR CLIENTE
 app.post('/clients', (request, response) => {
-  const { name , document, phone, email } = request.body
-  const client = { id: uuid(), name , document, phone, email }
+  const { name , document, phone, email, clientStatus } = request.body
+  const client = { id: uuid(), name , document, phone, email, clientStatus }
 
   clients.push(client)
   return response.json(client)
@@ -36,7 +37,7 @@ app.post('/clients', (request, response) => {
 // ATUALIZAR CLIENTE
 app.put('/clients/:id', (request, response) => {
   const { id } = request.params
-  const { name , document, phone, email } = request.body
+  const { name , document, phone, email, clientStatus } = request.body
 
   const clientIndex = clients.findIndex((user) => user.id === id)
 
@@ -44,7 +45,7 @@ app.put('/clients/:id', (request, response) => {
     return response.status(404).json({error: 'User not found.'})
   }
 
-  const client = { id, name , document, phone, email }
+  const client = { id, name , document, phone, email, clientStatus }
   clients[clientIndex] =  client
 
   return response.json(client)
